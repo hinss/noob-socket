@@ -45,7 +45,7 @@ public class Server {
 
             @Override
             public void run() {
-                System.out.println("[获得连接] IP:" + client.getInetAddress().getHostAddress() + " PORT:" + client.getPort());
+                System.out.println("[获得客户端连接] IP:" + client.getInetAddress().getHostAddress() + " PORT:" + client.getPort());
 
                 try {
                     do {
@@ -56,7 +56,7 @@ public class Server {
                             printStream.println("bye");
                             isClosed = true;
                         }else{
-                            System.out.println("[收到消息] 客户端IP: " + client.getInetAddress().getHostAddress() + "的消息:" + message);
+                            System.out.println("[收到消息] 客户端IP: " + client.getInetAddress().getHostAddress() + "P:"+client.getPort()+ "的消息:" + message);
                             // 回送给客户端消息
                             printStream.println(message);
                         }
