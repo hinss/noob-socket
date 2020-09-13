@@ -7,9 +7,9 @@ import java.net.*;
 /**
  * @author: hins
  * @created: 2020-09-08 21:02
- * @desc: 基于UDP协议的搜索方
+ * @desc: UDP单播 服务搜索方
  **/
-public class UdpSearch {
+public class UdpSearcher {
 
     public static void main(String[] args) throws IOException {
 

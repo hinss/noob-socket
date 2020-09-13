@@ -12,5 +12,18 @@
 
     <artifactId>socket-client</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.hins.socket</groupId>
+            <artifactId>library</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.hins.socket</groupId>
+            <artifactId>common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
 
 </project>

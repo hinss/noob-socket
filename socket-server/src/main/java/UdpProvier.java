@@ -2,12 +2,11 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetSocketAddress;
-import java.net.SocketException;
 
 /**
  * @author: hins
  * @created: 2020-09-08 20:53
- * @desc: UDP 提供服务端
+ * @desc: UDP单播 服务提供者
  **/
 public class UdpProvier {
 
