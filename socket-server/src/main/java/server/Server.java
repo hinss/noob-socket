@@ -1,5 +1,7 @@
 package server;
 
+import constants.TCPConstants;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -17,19 +19,11 @@ public class Server {
 
     public static void main(String[] args) throws IOException {
 
-        // 启动ServerSocket 并且制定端口8888
-        ServerSocket serverSocket = new ServerSocket(8888);
+        // 启动台启动 udp server
+        UdpProvier.start(TCPConstants.PORT_SERVER);
 
-        System.out.println("[服务端启动] ServerAddress:" + serverSocket.getInetAddress() + " Port:" + serverSocket.getLocalPort());
 
-        for(;;){
 
-            // 循环 阻塞监听连接
-            Socket client = serverSocket.accept();
-
-            // 获得连接 开启线程处理连接 不阻塞主线程
-            new ClientHandler(client).start();
-        }
     }
 
     private static class ClientHandler extends Thread{
