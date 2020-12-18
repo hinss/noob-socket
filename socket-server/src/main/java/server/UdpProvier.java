@@ -1,3 +1,5 @@
+package server;
+
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -12,7 +14,7 @@ public class UdpProvier {
 
     public static void main(String[] args) throws IOException {
 
-        System.out.println("UdpProvier Started");
+        System.out.println("server.UdpProvier Started");
 
         // 构建DatagramSocket对象 该对象会在底层调用UDP网络层协议
         DatagramSocket udpProvier = new DatagramSocket(9999);

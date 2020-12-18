@@ -1,3 +1,5 @@
+package server;
+
 import constants.UDPConstants;
 import udplib.MessageCreator;
 
