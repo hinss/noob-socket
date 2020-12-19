@@ -1,3 +1,5 @@
+package com.hins.noobsocket.client;
+
 import java.io.*;
 import java.net.InetSocketAddress;
 import java.net.Socket;
@@ -13,17 +15,21 @@ public class Client {
 
     public static void main(String[] args) throws IOException {
 
-        // 构建客户端连接socket对象
-        Socket client = new Socket();
-        // 设置连接超时时间
-        client.setSoTimeout(3000);
+        // 客户端启动控制台
+        // 1.一启动就马上开始 UDP 搜索
+        try {
+            UdpSearcher.ServerInfo serverInfo = UdpSearcher.searchServer();
+            if(serverInfo == null){
+                System.out.println("no serverInfo...");
+                return ;
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-        // 绑定连接服务端的ip 端口
-        client.connect(new InetSocketAddress("127.0.0.1",8888));
+        // 2.进行TCP连接
 
-        requestAndResponse(client);
 
-        client.close();
     }
 
     private static void requestAndResponse(Socket client) throws IOException {

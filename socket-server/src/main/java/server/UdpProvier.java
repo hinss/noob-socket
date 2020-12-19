@@ -22,8 +22,9 @@ public class UdpProvier {
     private static Provider PROVIDER_INSTANCE;
 
     public static void start(int tcpPort){
-        // 如果Server重启先停掉UDP Provier
+        // 1.如果Server重启先停掉UDP Provier
         stop();
+        // 2.启动Provider线程 接收合法的UDP搜索并且返回TCP Server信息。
         String sn = UUID.randomUUID().toString();
         Provider provider = new Provider(sn, tcpPort);
         provider.start();
@@ -61,7 +62,7 @@ public class UdpProvier {
         @Override
         public void run() {
 
-            System.out.println("server.UdpProvier Started");
+            System.out.println("$UdpProvier Started...");
 
             try {
                 // 构建DatagramSocket对象 该对象会在底层调用UDP网络层协议
@@ -86,9 +87,6 @@ public class UdpProvier {
                     byte[] clientData = receivePacket.getData();
                     // data长度
                     int clientDataLen = receivePacket.getLength();
-                    // 构建成String类型的消息
-                    String receiveMsg = new String(clientData,0, clientDataLen);
-                    System.out.println("[收到消息] 来自IP:" + searcherIp + " P:" + searcherPort + " 内容:" + receiveMsg);
 
                     // 校验搜索方 头部信息 不合法者不会给他返回 TCP的 Port.
                     boolean isValid = clientDataLen >= (UDPConstants.HEADER.length + 2 + 4)

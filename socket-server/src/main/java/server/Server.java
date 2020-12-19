@@ -19,7 +19,7 @@ public class Server {
 
     public static void main(String[] args) throws IOException {
 
-        // 启动台启动 udp server
+        // 1.启动台启动 udp server
         UdpProvier.start(TCPConstants.PORT_SERVER);
 
 

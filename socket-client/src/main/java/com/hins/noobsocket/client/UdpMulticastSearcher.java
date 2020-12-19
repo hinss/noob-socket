@@ -1,3 +1,5 @@
+package com.hins.noobsocket.client;
+
 import constants.UDPConstants;
 import udplib.MessageCreator;
 
